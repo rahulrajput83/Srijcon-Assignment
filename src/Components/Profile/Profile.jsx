@@ -81,7 +81,11 @@ function Profile() {
             })
     }
 
-    /* /public/v2/users/17 */
+    const handleEdit = () => {
+        return navigate('/edit');
+    }
+    
+    /* Get specific Employee details on component mounted. */
     useEffect(() => {
         fetch(`https://gorest.co.in/public/v2/users/${id}`, {
             method: 'GET',
@@ -129,7 +133,7 @@ function Profile() {
                 </GridCont>
 
                 {/* Edit Icon */}
-                <Edit onClick={() => console.log('Edit')} />
+                <Edit onClick={handleEdit} />
 
                 {/* Delete Icon */}
                 <Delete onClick={handleDelete} />
