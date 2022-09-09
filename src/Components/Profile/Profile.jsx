@@ -58,6 +58,7 @@ function Profile() {
     /* useState to store response data */
     const [data, setData] = useState({})
 
+    /* Gets Id from route. */
     const {id} = useParams();
 
     /* Deletes employee profile when delete icon is clicked. */
@@ -82,7 +83,8 @@ function Profile() {
     }
 
     const handleEdit = () => {
-        return navigate('/edit');
+        /* Navigate to edit route with value. */
+        return navigate(`/edit/${id}`);
     }
     
     /* Get specific Employee details on component mounted. */
@@ -112,9 +114,9 @@ function Profile() {
             <GridCont className="line"></GridCont>
 
             <ProfileContainer className='profile'>
-
+                
                 {/* Employee Profile image */}
-                <ProfileAvatar size='large' />
+                <ProfileAvatar sx={{ width: 100, height: 100 }} />
 
                 {/* Employee Name - Renders Name Component from ./Name */}
                 <Name text={data.email} />

@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes, } from 'react-router-dom';
 import Admin from "./Components/Admin/Admin";
 import Profile from "./Components/Profile/Profile";
 import NewEmployee from "./Components/AddNew/NewEmployee";
+import EditProfile from "./Components/EditProfile/EditProfile";
 
 /* Routes for application */
 function App() {
@@ -20,6 +21,8 @@ function App() {
         <Route path='/profile/:id' element={<Profile />} />
         {/* Renders NewEmployee Component. */}
         <Route path='/add' element={<NewEmployee />} />
+        {/* Renders EditProfile Component. */}
+        <Route path='/edit/:id' element={<EditProfile />} />
       </Routes>
     </BrowserRouter>
   );

@@ -76,7 +76,8 @@ function Login() {
                         })
                             .then(value => value.json())
                             .then((value) => {
-                                return navigate('/edit')
+                                /* Navigate to edit route with id. */
+                                return navigate(`/edit/${value.id}`)
                             })
                             /* Catch error */
                             .catch(err => console.log('err'))

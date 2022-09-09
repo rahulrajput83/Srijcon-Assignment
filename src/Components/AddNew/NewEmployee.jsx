@@ -22,7 +22,7 @@ function NewEmployee() {
     /* handleSubmit when Login/Signup buuton ic clicked. */
     const handleSubmit = (e) => {
         e.preventDefault();
-        /* If data.email and data.password are empty then show error with error mesaage. */
+        /* If data.email or data.password are empty or darta.email odesn't contains '@' then show error with error mesaage. */
         if (data.email === '' || data.password === '' || data.email.indexOf('@') === -1) {
             setError(true)
             setMessage('All fields required !')
@@ -47,7 +47,6 @@ function NewEmployee() {
                 })
         }
     }
-    console.log(data)
 
     /* Return */
     return (
