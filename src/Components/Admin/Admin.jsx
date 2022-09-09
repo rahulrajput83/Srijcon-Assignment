@@ -3,17 +3,23 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { styled } from '@mui/material/styles';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { GridCont } from '../Styles/Style';
-import { Grid, } from '@mui/material';
+import { Avatar, Grid, } from '@mui/material';
 import { red, green } from '@mui/material/colors';
 import AddIcon from '@mui/icons-material/Add';
 import SpanText from './SpanText';
 import SecondaryText from '../Profile/SecondaryText';
 import { useNavigate } from 'react-router-dom';
+import Header from '../Header/Header';
 
 /* MUI Grid Component with empty styles */
 const GridItem = styled(Grid)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
+}));
+
+/* Profile Avatar Styles */
+const ProfileAvatar = styled(Avatar)(() => ({
+    marginBottom: '20px',
 }));
 
 /* MUI Delete Icon with styles */
@@ -64,6 +70,7 @@ export default function Admin() {
         })
             .then(response => response.json())
             .then((response) => {
+                /* Calls getData callback function */
                 getData();
             })
             .catch((err) => {
@@ -95,12 +102,8 @@ export default function Admin() {
     /* Return */
     return (
         <GridCont className='column'>
-            <GridCont className='row'>
-                {/* Renders SpanText Component with text prop from './SpanText' */}
-                <SpanText text="Management System" />
-                <SpanText text="Admin" />
-            </GridCont>
-            <GridCont className="line"></GridCont>
+            {/* Renders Header Component */}
+            <Header />
             {/* Renders SpanText Component with text prop from './SpanText' */}
             <SpanText text="List of Employees" />
             <GridCont className='grid'>
@@ -111,6 +114,7 @@ export default function Admin() {
                         return (
 
                             <GridItem key={index} className='grid_item'>
+                                <ProfileAvatar sx={{ width: 80, height: 80 }} />
                                 {/* Renders SpanText Component with text prop from './SpanText' */}
                                 <SpanText text={item.email} />
                                 {/* Renders SecondaryText Component with text prop from '../Profile/SecondaryText' */}

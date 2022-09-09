@@ -2,7 +2,6 @@
 import styled from '@emotion/styled';
 import { Avatar, Grid } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import SpanText from '../Admin/SpanText'
 import { GridCont } from '../Styles/Style'
 import DetailsCard from './DetailsCard';
 import Name from './Name';
@@ -10,6 +9,7 @@ import SecondaryText from './SecondaryText';
 import { EditSharp, DeleteOutlineOutlined } from '@mui/icons-material';
 import { red, teal } from '@mui/material/colors';
 import { useNavigate, useParams } from 'react-router-dom';
+import Header from '../Header/Header';
 
 
 /* Profile Avatar Styles */
@@ -107,11 +107,7 @@ function Profile() {
     /* Return */
     return (
         <GridCont className='column'>
-            <GridCont className='row'>
-                <SpanText text="Management System" />
-                <ProfileAvatar />
-            </GridCont>
-            <GridCont className="line"></GridCont>
+            <Header />
 
             <ProfileContainer className='profile'>
                 
